@@ -110,9 +110,9 @@ function getFigure($collection, $imageID, $classes='', $getCaption=false){
     $figString .= '><img src="'.$image['src'].'" alt="'.$image['alt'].'"';
     if ($getCaption){
       $caption = 'short';
-      if ($getCaption == 'full' && isset($image['caption']))
+      if ($getCaption == 'full' && !empty($image['caption']))
         $caption = 'caption';
-      if (isset($image[$caption]))
+      if (!empty($image[$caption]))
         $figString .= '><figcaption>'.$image[$caption].'</figcaption';
     }
   }
