@@ -1,11 +1,8 @@
 function initiateCarousels(){
   $('.carousel-container').each(function(){
     hideScroll($(this));
-    if (!!$(this).attr('data-autoscroll')){
+    if (!!$(this).attr('data-autoscroll'))
       autoscrollSlides($(this));
-    }
-    else
-      alert('not working... :(');
   });
 
   $('.carousel-container').on('click', '.control-container', function(){
