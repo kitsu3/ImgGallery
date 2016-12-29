@@ -119,13 +119,13 @@ function createContainer(&$container){
 	$contString = '';
 
 	$collection = 'main-slide';
-	if (isset($container['collection'])){
+	if (isset($container['collection']) && is_string($container['collection'])){
 		safeAttribute($container['collection']);
 		$collection = $container['collection'];
 	}
 
 	$id = $collection;
-	if (isset($container['id'])){
+	if (isset($container['id']) && is_string($container['id'])){
 		safeAttribute($container['id']);
 		$id = $container['id'];
 	}
