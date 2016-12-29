@@ -7,7 +7,8 @@
         initiateCarousels();
       });
     </script>
-
+    <!--Carousels will be broken without Bootstrap glyphicons and 
+    galleries will be broken without Bootstrap columns!-->
     <link href="/path/to/bootstrap.css" rel="stylesheet">
     <link href="/path/to/carousel.css" rel="stylesheet">
   </head>
