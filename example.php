@@ -13,7 +13,7 @@
   </head>
   <body>
     <main>
-      <?php include_once 'path/to/image-carousel.php'; ?>
+      <?php include_once 'path/to/image-gallery.php'; ?>
       <section id="main-slide-section">
         <div id="main-slide-container" class="container">
           <?php 
