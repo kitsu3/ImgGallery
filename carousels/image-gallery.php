@@ -34,8 +34,8 @@ function safeAttribute(&$attrName){
 
 function getHTMLDir(){
 	$imgdir = dirname(__FILE__);
-	//$basedir = 'htdocs';
-	$basedir = 'public_html';
+	$basedir = 'htdocs';
+	//$basedir = 'public_html';
 	$pos = strpos($imgdir, $basedir);
 	$pos += strlen($basedir);
 
@@ -119,13 +119,13 @@ function createContainer(&$container){
 	$contString = '';
 
 	$collection = 'main-slide';
-	if (isset($container['collection'])){
+	if (isset($container['collection']) && is_string($container['collection'])){
 		safeAttribute($container['collection']);
 		$collection = $container['collection'];
 	}
 
 	$id = $collection;
-	if (isset($container['id'])){
+	if (isset($container['id']) && is_string($container['id'])){
 		safeAttribute($container['id']);
 		$id = $container['id'];
 	}
@@ -170,14 +170,14 @@ function createContainer(&$container){
 		if (is_int($container['autoscroll']))
 			$interval = $container['autoscroll'];
 
-		$contString .= '" autoscroll="'.$interval;
+		$contString .= '" data-autoscroll="'.$interval;
 	}
 
 	$transition = 700;
 	if (isset($container['transition']) && $carousel){
 		if (is_int($container['transition']))
 			$transition = $container['transition'];
-		$contString .= '" transition-speed="'.$transition;
+		$contString .= '" data-trans-speed="'.$transition;
 	}
 
 	$showDots = false;
@@ -186,9 +186,9 @@ function createContainer(&$container){
 			$showDots = true;
 
 	if (!$carousel)
-		$contString .= '<div class="thumbnails gallery" collection="'.$collection;
+		$contString .= '<div class="thumbnails gallery" data-collection="'.$collection;
 
-	$contString .= '">';
+	$contString .= '" data-collection="'.$collection.'">';
 
 	$imgArray = dirname(__FILE__).'/'.$collection.'/img-array.php';
 
