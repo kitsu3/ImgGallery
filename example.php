@@ -7,8 +7,7 @@
         initiateCarousels();
       });
     </script>
-    <!--Carousels will be broken without Bootstrap glyphicons and 
-    galleries will be broken without Bootstrap columns!-->
+
     <link href="/path/to/bootstrap.css" rel="stylesheet">
     <link href="/path/to/carousel.css" rel="stylesheet">
   </head>
@@ -50,18 +49,21 @@
           </div>
         </div>
       </section>
+      <?php 
+        /* Creates a popup carousel associated with the 'main-slide' collection of images.
+        * Popup carousels should always be direct children of a full-screen element such as <body> or <main>.
+        */
+        $popup = array(
+          'collection' => 'main-slide', 
+          'id' => 'main-slide-popup', 
+          'carousel' => true,
+          'popup' => true,
+          'bottomControls' => true
+        ); 
+      ?>
       <section id="gallery-section">
         <div id="gallery-container" class="container">
-          <?php 
-            // Creates a popup gallery associated with the 'main-slide' collection of images.
-            $popup = array(
-              'collection' => 'main-slide', 
-              'id' => 'main-slide-popup', 
-              'carousel' => true,
-              'popup' => true,
-              'bottomControls' => true
-            );
-
+          <?php
             // Creates a thumbnail gallery with images that will open our $popup carousel when clicked.
             $gallery = array('collection' => 'main-slide');
             createContainer($gallery); 
