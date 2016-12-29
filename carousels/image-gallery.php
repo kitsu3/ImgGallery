@@ -119,8 +119,16 @@ function createContainer(&$container){
 	$contString = '';
 
 	$id = 'main-slide';
-	if (isset($container['id']))
-		$id = isSafeFolder($container['id']);
+	if (isset($container['id'])){
+		safeAttribute($container['id']);
+		$id = $container['id'];
+	}
+
+	$collection = $id;
+	if (isset($container['collection'])){
+		safeAttribute($container['collection']);
+		$collection = $container['collection'];
+	}
 
 	$carousel = false;
 	if (isset($container['carousel']))
@@ -178,11 +186,11 @@ function createContainer(&$container){
 			$showDots = true;
 
 	if (!$carousel)
-		$contString .= '<div class="thumbnails gallery" collection="'.$id;
+		$contString .= '<div class="thumbnails gallery" collection="'.$collection;
 
 	$contString .= '">';
 
-	$imgArray = dirname(__FILE__).'/'.$id.'/img-array.php';
+	$imgArray = dirname(__FILE__).'/'.$collection.'/img-array.php';
 
 	if (file_exists($imgArray))
 		include $imgArray;
