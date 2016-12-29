@@ -32,6 +32,8 @@ If this is not the case, please be sure to change the `$basedir` variable in the
                 'caption' => 'long caption seen in carousel',
         );
 
+YOU MUST have a 'name' and an 'alt' value for every image.
+
 Every other function depends on this array, so if your images aren't loading make sure they're in the array, and that the names are all correct!
 
 <h2>ImgGallery Methods</h2>
