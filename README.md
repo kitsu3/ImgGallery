@@ -44,17 +44,24 @@ Otherwise, it's probably best to create the array beforehand and use that to ini
 
 <h3>The getFigure Method</h3>
 This method echos a figure wherever it is called.  It takes the following arguments:
+
 <strong>collection (<em>string</em>)</strong> -  Required. This is the same as the name of your initial collection folder.
+
 <strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the /path/to/collection/img-array.php array.  Otherwise, looks for an image in that array of name imageID.
+
 <strong>classes (<em>string</em>)</strong> - Optional, defaults to ''. Adds the classes string to the figure's class.  Separate classes with a space, like you would in HTML.
+
 <strong>getCaption (<em>string</em> or <em>boolean</em>)</strong> - Optional, defaults to false. If getCaption is passed the string "full", it will return a figure with the full image caption (that is, it will grab the 'caption' value of the image).  Otherwise, if getCaption is passed a true value, it will return a figure with the short image caption.
 
 If the image isn't found, echos an empty figure.
 
 <h3>The getSingleImage Method</h3>
 This method echos a single image, without being called inside a figure.  It takes the following arguments:
+
 <strong>collection (<em>string</em>)</strong> -  Required. This is the same as the name of your initial collection folder.
+
 <strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the /path/to/collection/img-array.php array.  Otherwise, looks for an image in that array of name imageID.
+
 <strong>echoString (<em>boolean</em>)</strong> - Optional, defaults to true.  If set to false, it instead returns an array containing the src, alt, short, and caption values of the image.
 
 If the image isn't found, returns an empty string.
