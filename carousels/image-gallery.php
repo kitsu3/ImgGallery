@@ -118,16 +118,16 @@ function getFigure($collection, $imageID, $classes='', $getCaption=false){
 function createContainer(&$container){
 	$contString = '';
 
-	$id = 'main-slide';
-	if (isset($container['id'])){
-		safeAttribute($container['id']);
-		$id = $container['id'];
-	}
-
-	$collection = $id;
+	$collection = 'main-slide';
 	if (isset($container['collection'])){
 		safeAttribute($container['collection']);
 		$collection = $container['collection'];
+	}
+
+	$id = $collection;
+	if (isset($container['id'])){
+		safeAttribute($container['id']);
+		$id = $container['id'];
 	}
 
 	$carousel = false;
