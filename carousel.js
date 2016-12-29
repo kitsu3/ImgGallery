@@ -1,8 +1,11 @@
 function initiateCarousels(){
   $('.carousel-container').each(function(){
     hideScroll($(this));
-    if (!!$(this).attr('autoscroll'))
+    if (!!$(this).attr('data-autoscroll')){
       autoscrollSlides($(this));
+    }
+    else
+      alert('not working... :(');
   });
 
   $('.carousel-container').on('click', '.control-container', function(){
@@ -14,7 +17,7 @@ function initiateCarousels(){
 
 function autoscrollSlides(carousel){
   // Scrolls slides over whatever the autoscroll is
-  var interval = parseInt(carousel.attr('autoscroll'));
+  var interval = parseInt(carousel.attr('data-autoscroll'));
 
   var carID = setInterval(function(){
     scrollSlide(carousel, carousel.find('.control-right'));
@@ -68,13 +71,13 @@ function scrollSlide(carousel, control){
 
   // Set speed at which slides move when scrolling
   var slideSpeed = 700;
-  if (!!carousel.attr('transition-speed'))
-    slideSpeed = parseInt(carousel.attr('transition-speed'));
+  if (!!carousel.attr('data-trans-speed'))
+    slideSpeed = parseInt(carousel.attr('data-trans-speed'));
 
   // Set transition type
   var transition = "scroll";
-  if (!!carousel.attr('transition-type'))
-    transition = carousel.attr('transition-type');
+  if (!!carousel.attr('data-trans-type'))
+    transition = carousel.attr('data-trans-type');
 
   // Fix width of inner-container of carousel while scrolling; will re-adjust later
   if (carousel.hasClass('popup')){
@@ -387,8 +390,8 @@ $(document).on('click', '.gallery figure img', function(){
   if (!$('.popup.carousel-container').hasClass('active') || $('#page-header .menu-icon').css('display')!='none'){
     hideContainer();
     var index = $(this).parents('.fig-container').attr('data-index');
-    var collection = $(this).parents('.gallery').attr('collection');
-    showContainer($('.popup.carousel-container[id='+collection+']'), index);
+    var collection = $(this).parents('.gallery').attr('data-collection');
+    showContainer($('.popup.carousel-container[data-collection='+collection+']'), index);
     $('.popup.carousel-container.active .dot-controls .dot').removeClass('active');
     $('.popup.carousel-container.active .dot-controls .dot[data-index='+index+']').addClass('active');
   }
