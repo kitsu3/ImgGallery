@@ -2,12 +2,12 @@
 
 This is a very simple PHP class which automatically creates photo galleries and carousels.  It requires a bit of legwork, but with the result of being able to easily grab and reuse images in a particular folder over and over again.
 
-<strong>THIS CLASS REQUIRES JQUERY AND BOOTSTRAP CSS TO RUN PROPERLY.</strong>
-The carousel animations require jQuery.  <br>
-The carousels use the glyphicon font that comes with Bootstrap for the arrow controls.  <br>
-The galleries use the bootstrap column classes (col-xs-6, col-sm-4, etc).
+<strong>THIS CLASS REQUIRES JQUERY AND BOOTSTRAP CSS TO RUN PROPERLY.</strong><br>
+The carousel animations require jQuery.<br>
+The carousels use the glyphicon font that comes with Bootstrap for the arrow controls.<br>
+The galleries use the bootstrap column classes (col-xs-6, col-sm-4, etc).<br>
 
-<strong>This class assumes that your base directory is 'public_html'.</strong>
+<strong>This class assumes that your base directory is 'public_html'.</strong><br>
 If this is not the case, please be sure to change the `$basedir` variable in the getHTMLDir() method!
 
 <h2>Setting Up the ImgGallery</h2>
