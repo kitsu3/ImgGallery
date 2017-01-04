@@ -210,41 +210,41 @@ class ImgGallery{
           echo '
           </figure>
         </div>';
+
+          $j = $index+1;
+          $clearfix = '';
+
+          $xs = 12; $sm = 12; $md = 12; $lg = 12;
+          if (isset($columns['xs']))
+            $xs = $columns['xs'];
+          if (isset($columns['sm']))
+            $sm = $columns['sm'];
+          if (isset($columns['md']))
+            $md = $columns['md'];
+          if (isset($columns['lg']))
+            $lg = $columns['lg'];
+
+          if ($j%12===0 || $j%$lg===0 || $j%$md===0 || $j%$sm===0 || $j%$xs===0 || $j===count($this->images)){
+            $clearfix .= '<div class="clearfix';
+            if ($j===count($this->images) || $j%12===0)
+              $clearfix .= '';
+            else{
+              if ($j%$lg===0) 
+                $clearfix .= ' visible-lg';
+              if ($j%$md===0)
+                $clearfix .= ' visible-md';
+              if ($j%$sm===0)
+                $clearfix .= ' visible-sm';
+              if ($j%$xs===0)
+                $clearfix .= ' visible-xs';
+            }
+            $clearfix .= '"></div>';
+            echo $clearfix;
+          }
         }
       }
       echo '
     </div>';
-
-      $j = $index+1;
-      $clearfix = '';
-
-      $xs = 12; $sm = 12; $md = 12; $lg = 12;
-      if (isset($columns['xs']))
-        $xs = $columns['xs'];
-      if (isset($columns['sm']))
-        $sm = $columns['sm'];
-      if (isset($columns['md']))
-        $md = $columns['md'];
-      if (isset($columns['lg']))
-        $lg = $columns['lg'];
-
-      if ($j%12===0 || $j%$lg===0 || $j%$md===0 || $j%$sm===0 || $j%$xs===0 || $j===count($this->images)){
-        $clearfix .= '<div class="clearfix';
-        if ($j===count($this->images) || $j%12===0)
-          $clearfix .= '';
-        else{
-          if ($j%$lg===0) 
-            $clearfix .= ' visible-lg';
-          if ($j%$md===0)
-            $clearfix .= ' visible-md';
-          if ($j%$sm===0)
-            $clearfix .= ' visible-sm';
-          if ($j%$xs===0)
-            $clearfix .= ' visible-xs';
-        }
-        $clearfix .= '"></div>';
-        echo $clearfix;
-      }
     }
   }
 
