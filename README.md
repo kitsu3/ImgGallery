@@ -50,7 +50,7 @@ This method creates a gallery, and takes an optional array argument called `$col
 <h3>The getFigure Method</h3>
 This method echos a figure wherever it is called.  It takes the following arguments:
 
-<strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the /path/to/collection/img-array.php array.  Otherwise, looks for an image in that array of name imageID.
+<strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the collection's img-array.php array.  Otherwise, looks for an image in that array of name imageID.
 
 <strong>classes (<em>string</em>)</strong> - Optional, defaults to ''. Adds the classes string to the figure's class.  Separate classes with a space, like you would in HTML.
 
@@ -61,7 +61,7 @@ If the image isn't found, echos an empty figure.
 <h3>The getSingleImage Method</h3>
 This method echos a single image, without being called inside a figure.  It takes the following arguments:
 
-<strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the /path/to/collection/img-array.php array.  Otherwise, looks for an image in that array of name imageID.
+<strong>imageID (<em>string</em> or <em>int</em>)</strong> - Required. If imageID is an integer n, looks for the nth image in the collection's img-array.php array.  Otherwise, looks for an image in that array of name imageID.
 
 <strong>echoString (<em>boolean</em>)</strong> - Optional, defaults to true.  If set to false, it instead returns an array containing the src, alt, short, and caption values of the image.
 
