@@ -214,16 +214,49 @@ class ImgGallery{
           $j = $index+1;
           $clearfix = '';
 
-          $xs = 12; $sm = 12; $md = 12; $lg = 12;
-          if (isset($columns['xs']))
+          if (isset($columns['xs'])){
             $xs = $columns['xs'];
-          if (isset($columns['sm']))
+            if (!isset($columns['sm'])){
+              $sm = $columns['xs'];
+              if (!isset($columns['md'])){
+                $md = $columns['xs'];
+                if (!isset($columns['lg'])){
+                  $lg = $columns['xs'];
+                }
+              }
+            }
+          }
+          if (isset($columns['sm'])){
             $sm = $columns['sm'];
-          if (isset($columns['md']))
+            if (!isset($xs))
+              $xs = $columns['sm'];
+            if (!isset($columns['md'])){
+              $md = $columns['sm'];
+              if (!isset($columns['lg']))
+                $lg = $columns['sm'];
+            }
+          }
+          if (isset($columns['md'])){
             $md = $columns['md'];
-          if (isset($columns['lg']))
+            if (!isset($xs) && !isset($sm)){
+              $xs = $columns['md'];
+              $sm = $columns['md'];
+            }
+            if (!isset($lg))
+              $lg = $columns['md'];
+          }
+          if (isset($columns['lg'])){
             $lg = $columns['lg'];
-
+            if (!isset($xs) && !isset($sm) && !isset($md)){
+              $xs = $columns['lg'];
+              $sm = $columns['lg'];
+              $md = $columns['lg'];
+            }
+          }
+          if (!isset($xs) && !isset($sm) && !isset($md) && !isset($lg)){
+            $xs = 12; $sm = 12; $md = 12; $lg = 12;
+          }
+          
           if ($j%12===0 || $j%$lg===0 || $j%$md===0 || $j%$sm===0 || $j%$xs===0 || $j===count($this->images)){
             $clearfix .= '<div class="clearfix';
             if ($j===count($this->images) || $j%12===0)
