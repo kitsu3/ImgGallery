@@ -25,12 +25,8 @@
 	vertical-align: top;
 }
 
-.carousel-container .inner-container .fig-container.active.sliding:not(.last){
-	margin: 0 -3px;
-}
-
 .carousel-container .inner-container .fig-container.active.sliding.last{
-	margin-left: -2px;
+	margin-right: -3px;
 }
 
 .carousel-container .inner-container figure img{
