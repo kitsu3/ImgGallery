@@ -405,7 +405,9 @@ class ImgGallery{
               $endA = '</a>';
 
               if (isset($image['target']) && !empty($image['target']))
-                $anchor .= 'target="'.$this->safeAttribute($image['target']).'"';
+                $aTarget = $image['target'];
+                $this->safeAttribute($aTarget);
+                $anchor .= 'target="'.$aTarget.'"';
                 $anchor .= '>';
             }
           }
